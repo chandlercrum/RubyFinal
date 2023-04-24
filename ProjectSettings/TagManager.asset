@@ -6,6 +6,9 @@ TagManager:
   tags:
   - RubyController
   - AmmoPickup
+  - PowerPickup
+  - SlowZone
+  - Projectile
   layers:
   - Default
   - TransparentFX
@@ -19,7 +22,7 @@ TagManager:
   - Projectile
   - Confiner
   - NPC
-  - 
+  - NPC2
   - 
   - 
   - 

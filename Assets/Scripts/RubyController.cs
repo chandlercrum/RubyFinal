@@ -34,6 +34,9 @@ public class RubyController : MonoBehaviour
     public AudioClip winSound;
     public AudioClip loseSound;
     public AudioClip collectedClip;
+    public AudioClip talkSound;
+    public AudioClip growlSound;
+    public AudioClip squishSound;
 
     public GameObject BGM;
 
@@ -123,6 +126,20 @@ public class RubyController : MonoBehaviour
                 {
                     character.DisplayDialog();
                 }
+
+                PlaySound(talkSound);
+            }
+
+            RaycastHit2D get = Physics2D.Raycast(rigidbody2d.position + Vector2.up * 0.2f, lookDirection, 1.5f, LayerMask.GetMask("NPC2"));
+            if (get.collider != null)
+            {
+                NonPlayerCharacter character = get.collider.GetComponent<NonPlayerCharacter>();
+                if (character != null)
+                {
+                    character.DisplayDialog();
+                }
+
+                PlaySound(growlSound);
             }
         }
 
@@ -176,6 +193,7 @@ public class RubyController : MonoBehaviour
             invincibleTimer = timeInvincible;
             Instantiate(healthDownEffect, rigidbody2d.position + Vector2.up * 0.05f, Quaternion.identity);
             PlaySound(hitSound);
+            speed = 3.0f;
         }
 
         if (amount > 0)
@@ -254,6 +272,20 @@ public class RubyController : MonoBehaviour
             Destroy(collision.collider.gameObject);
             PlaySound(collectedClip);
             Instantiate(healthUpEffect, rigidbody2d.position + Vector2.up * 0.05f, Quaternion.identity);
+        }
+
+        if (collision.collider.tag == "PowerPickup")
+        {
+            speed = 6.0f;
+            Destroy(collision.collider.gameObject);
+            PlaySound(collectedClip);
+            Instantiate(healthUpEffect, rigidbody2d.position + Vector2.up * 0.05f, Quaternion.identity);
+        }
+
+        if (collision.collider.tag == "SlowZone")
+        {
+            speed = 1.0f;
+            PlaySound(squishSound);
         }
     }
 }

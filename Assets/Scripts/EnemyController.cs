@@ -91,11 +91,10 @@ public class EnemyController : MonoBehaviour
     {
         RubyController player = other.gameObject.GetComponent<RubyController>();
 
-        if (player != null)
+        if (player != null);
         {
             player.ChangeHealth(-1);
         }
-
     }
 
     public void Fix()

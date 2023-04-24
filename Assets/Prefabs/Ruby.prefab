@@ -120,8 +120,12 @@ MonoBehaviour:
   winSound: {fileID: 8300000, guid: f66d9b55aac0e2741b8828ec9b764dd0, type: 3}
   loseSound: {fileID: 8300000, guid: 75c78b30ba8b671418ff9c4c8be8e8a9, type: 3}
   collectedClip: {fileID: 8300000, guid: af5f8b64e3f58f24c87ff8f789b04f6c, type: 3}
-  BGM: {fileID: 7877529150849569248, guid: ffb6d63311ab609468d5f45ad3b6045e, type: 3}
+  talkSound: {fileID: 8300000, guid: 73adfa5535fba6f408bec8a3d40bcd32, type: 3}
+  growlSound: {fileID: 8300000, guid: 44d46a1ef301cc04aba444cf46675736, type: 3}
+  squishSound: {fileID: 8300000, guid: 8811913c77da49a47856ea813b635e36, type: 3}
+  BGM: {fileID: 0}
   timeInvincible: 2
+  timeSlowed: 2
 --- !u!50 &1683138129616209130
 Rigidbody2D:
   serializedVersion: 4
@@ -201,7 +205,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
